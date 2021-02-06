@@ -13,7 +13,13 @@ var database = new Database();
 database.login('Timmy', 'password');
 */
 
-function validate(username, password){
+const validate = (username, password) => {
   var database = new Database();
+  let first = '||';
+  let second = '//';
+  if(password.includes(first) === true || password.includes(second) === true) {
+    return "Wrong username or password!";
+  }
+  
   return database.login(username, password);
 }
